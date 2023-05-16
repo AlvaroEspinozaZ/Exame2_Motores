@@ -57,17 +57,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Candy")
-        {           
-            
+        {                       
             CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
-          
-            sonidoPunto.CreateSound();
-          
+            CandyGenerator.instance.ManagePoints(other.gameObject.GetComponent<CandyController>(), this);
+            sonidoPunto.CreateSound();          
         }
         if (other.tag == "Enemy")
         {
                 sonidoGolpe.CreateSound();
-       CandyGenerator.instance.ManagePoints(other.gameObject.GetComponent<CandyController>(), this);
+            CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
         }
     }
     public void OnMove(InputAction.CallbackContext value)
