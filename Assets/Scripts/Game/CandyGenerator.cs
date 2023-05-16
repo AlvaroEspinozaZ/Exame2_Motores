@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class CandyGenerator : MonoBehaviour
 {
     public static CandyGenerator instance;
-    public List<GameObject> Candies = new List<GameObject>();
+    public List<GameObject> Candys = new List<GameObject>();
+    public List<GameObject> Enemys = new List<GameObject>();
     private float time_to_create = 4f;
     private float actual_time = 0f;
+    private float time_to_create2 = 4f;
+    private float actual_time2 = 0f;
     private float limitSuperior;
     private float limitInferior;
     public List<GameObject> actual_candies = new List<GameObject>();
+    public List<GameObject> actual_enemys = new List<GameObject>();
 
     void Awake()
     {
@@ -31,13 +35,22 @@ public class CandyGenerator : MonoBehaviour
     void Update()
     {
         actual_time += Time.deltaTime;
+        actual_time2 += Time.deltaTime;
         if (time_to_create <= actual_time)
         {
-            GameObject candy = Instantiate(Candies[Random.Range(0, Candies.Count)],
+            GameObject candy = Instantiate(Candys[Random.Range(0, Candys.Count)],
             new Vector3(transform.position.x, Random.Range(limitInferior, limitSuperior), 0f), Quaternion.identity);
             candy.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
             actual_time = 0f;
             actual_candies.Add(candy);
+        }
+        if (time_to_create2 <= actual_time2)
+        {
+            GameObject enemys = Instantiate(Enemys[Random.Range(0, Enemys.Count)],
+            new Vector3(transform.position.x, Random.Range(limitInferior, limitSuperior), 0f), Quaternion.identity);
+            enemys.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
+            actual_time2 = 0f;
+            actual_enemys.Add(enemys);
         }
     }
 
@@ -55,11 +68,11 @@ public class CandyGenerator : MonoBehaviour
             Destroy(candy_script.gameObject);
             return;
         }
-        if (candy_script.frame == 3)
+        /*if (candy_script.frame == 3)
         {
             SceneManager.LoadScene("GameOver");
             return;
-        }
+        }*/
         int lives = player_script.player_lives;
         int live_changer = candy_script.lifeChanges;
         lives += live_changer;
@@ -71,6 +84,11 @@ public class CandyGenerator : MonoBehaviour
         player_script.player_lives = lives;
         Destroy(candy_script.gameObject);
     }
+    public void ManagePoints(CandyController candy_script, PlayerMovement player_script = null)
+    {
+        int live_changer = candy_script.frame;
+        player_script.score+= live_changer;
 
+    }
 
 }

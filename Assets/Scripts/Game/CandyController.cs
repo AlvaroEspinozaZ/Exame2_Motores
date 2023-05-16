@@ -12,6 +12,7 @@ public class CandyController : MonoBehaviour
         if (transform.position.x <= -Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x)
         {
             CandyGenerator.instance.ManageCandy(this);
+            CandyGenerator.instance.ManagePoints(this);
         }
     }
 }
