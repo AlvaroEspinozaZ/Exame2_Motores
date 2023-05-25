@@ -1110,7 +1110,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &1657160264
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1127,8 +1127,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1657160265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1220,7 +1219,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &1714896969
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1237,8 +1236,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1714896970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1705,6 +1703,8 @@ MonoBehaviour:
   score: {fileID: 1236579679}
   pnts: 0
   player: {fileID: 1714896974}
+  rankings: {fileID: 11400000, guid: 64f877c40462c824880250436d113789, type: 2}
+  user: {fileID: 11400000, guid: 987bb2a9da697374785d244f0b696b99, type: 2}
 --- !u!1 &2069459770
 GameObject:
   m_ObjectHideFlags: 0
